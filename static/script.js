@@ -7,6 +7,8 @@ var selectid=function(i){
 	if(i==="="){
 		this.innerHTML = eval(this.innerHTML);
 	}
+        if(i==="back"){
+         this.innerHTML = this.innerHTML.slice(0,-1)}
 	else{
 	this.innerHTML = this.innerHTML + i;
    }
@@ -29,6 +31,9 @@ function startthis(){
         t.addEventListener('click', selectid.bind(p , i.toString()));
 
 	}
+                document.addEventListener('keydown' , function(event){
+if(event.keyCode==8){selectid("back")}
+})
 	
 		var o=c.getElementsByTagName('td')[0];
 		console.log(o);
